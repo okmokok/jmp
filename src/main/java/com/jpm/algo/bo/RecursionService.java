@@ -21,5 +21,20 @@ public class RecursionService {
 			printBinaryString(n - 1 , bArray);
 		}
 	}
+	
+	public void printCharacter(int n , int k , int[] ch) {
+		if (n < 1) {
+			for (int i : ch) {
+				System.out.println(i);
+			}
+			
+			System.out.println("-----------------");
+		} else {
+			for (int j = 0; j < k ; j++) {
+				ch[n-1] = j;
+				printCharacter(n-1 , k , ch);
+			}
+		}
+	}
 
 }
