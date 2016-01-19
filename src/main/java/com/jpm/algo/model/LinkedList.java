@@ -125,7 +125,7 @@ public class LinkedList {
 	}
 	
 	public void indexOf() {
-		
+		// test
 	}
 	
 	
