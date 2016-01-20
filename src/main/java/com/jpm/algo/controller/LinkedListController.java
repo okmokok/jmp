@@ -26,4 +26,20 @@ public class LinkedListController {
 		
 		return "home";
 	}
+	
+	@RequestMapping(value = {"/04-1"}, method = RequestMethod.GET)
+	public String findIndexOf() {
+		LinkedList linkedList = new LinkedList();
+		
+		linkedList.addFirst(30);
+		linkedList.addFirst(20);
+		linkedList.addFirst(10);
+		
+		System.out.println(linkedList.indexOf(10)); // 0
+		System.out.println(linkedList.indexOf(20)); // 1
+		System.out.println(linkedList.indexOf(30)); // 2
+	
+		
+		return "home";
+	}
 }

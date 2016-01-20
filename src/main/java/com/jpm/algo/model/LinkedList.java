@@ -1,8 +1,8 @@
 package com.jpm.algo.model;
 
 public class LinkedList {
-	private Node head;
-	private Node tail;
+	private Node<Object> head;
+	private Node<Object> tail;
 	private int size = 0;
 	
 	public LinkedList() {
@@ -12,7 +12,7 @@ public class LinkedList {
 	
 	private class Node<T> {
 		T data;
-		Node next;
+		Node<T> next;
 		
 		public Node(T data) {
 			this.data = data;
@@ -35,7 +35,7 @@ public class LinkedList {
 	}	
 
 	public void addFirst(Object data) {
-		Node node = new Node(data);
+		Node<Object> node = new Node<Object>(data);
 		node.next = this.head;
 		this.head = node;
 		this.size++;
@@ -46,7 +46,7 @@ public class LinkedList {
 	}
 	
 	public void addLast(Object data) {
-		Node node = new Node(data);
+		Node<Object> node = new Node<Object>(data);
 		
 		if (size == 0) {
 			addFirst(data);
@@ -59,8 +59,8 @@ public class LinkedList {
 		}
 	}
 	
-	public Node getNode(int index) {
-		Node node = head;
+	public Node<Object> getNode(int index) {
+		Node<Object> node = head;
 		
 		for (int i=0; i<index; i++) {
 			node = node.next;
@@ -81,7 +81,7 @@ public class LinkedList {
 			
 			Node<Object> temp2 = temp1.next;
 			
-			Node<Object> node = new Node(object);
+			Node<Object> node = new Node<Object>(object);
 			
 			temp1.next = node;
 			
@@ -97,7 +97,7 @@ public class LinkedList {
 	}
 	
 	public void removeFirst() {
-		Node temp = head;
+		Node<Object> temp = head;
 		head = temp.next;
 		size--;
 	}
@@ -106,8 +106,8 @@ public class LinkedList {
 		if (index == 0) {
 			removeFirst();
 		} else {
-			Node temp = this.getNode(index - 1);
-			Node removeNode = temp.next;
+			Node<Object> temp = this.getNode(index - 1);
+			Node<Object> removeNode = temp.next;
 			
 			temp.next = temp.next.next;
 			
@@ -124,9 +124,29 @@ public class LinkedList {
 		
 	}
 	
-	public void indexOf() {
+	
+	/**
+	 * 특정한 값을 가진 엘리먼트의 인덱스 값을 검색.
+	 * 값이 있다면 그 값이 발견되는 첫번째 인덱스 값을 리턴하고 값이 없다면 -1을 리턴.
+	 * 
+	 * @param data
+	 * @return
+	 */
+	public int indexOf(Object data) {
+		Node<Object> temp = head;
+		int index = 0;
 		
+		while (temp.data != data) {
+			temp = temp.next;
+			index++;
+			if (temp == null) {
+				return -1;
+			}
+		}
+		
+		return index;
 	}
+	
 	
 	
 }
