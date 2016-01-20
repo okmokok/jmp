@@ -37,7 +37,7 @@ public class LinkedListController {
 		
 		System.out.println(linkedList.indexOf(10)); // 0
 		System.out.println(linkedList.indexOf(20)); // 1
-		System.out.println(linkedList.indexOf(30)); // 2
+		System.out.println(linkedList.indexOf(30)); // 2.
 	
 		
 		return "home";
