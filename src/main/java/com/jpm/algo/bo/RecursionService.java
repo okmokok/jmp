@@ -10,7 +10,7 @@ public class RecursionService {
 			for (Integer i : bArray) {
 				System.out.println(i);
 			}
-			System.out.println("!!!!!===================");
+			System.out.println("feature ===================");
 		} else {
 			bArray[n - 1] = 0;
 			
