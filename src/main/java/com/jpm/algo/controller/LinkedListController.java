@@ -4,14 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.jpm.algo.model.LinkedList;
+import com.jpm.algo.util.DoubleLinkedList;
+import com.jpm.algo.util.LinkedList;
  
 // https://opentutorials.org/module/1335/8857
 @Controller
 public class LinkedListController {
 	@RequestMapping(value = {"/04"}, method = RequestMethod.GET)
 	public String findAllBinaryString() {
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<Integer>();
 		
 		linkedList.addFirst(30);
 		linkedList.addFirst(20);
@@ -29,7 +30,7 @@ public class LinkedListController {
 	
 	@RequestMapping(value = {"/04-1"}, method = RequestMethod.GET)
 	public String findIndexOf() {
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<Integer>();
 		
 		linkedList.addFirst(30);
 		linkedList.addFirst(20);
@@ -38,11 +39,6 @@ public class LinkedListController {
 		System.out.println(linkedList.indexOf(10)); // 0
 		System.out.println(linkedList.indexOf(20)); // 1
 		System.out.println(linkedList.indexOf(30)); // 2
-
-		System.out.println("test 1");
-		System.out.println("test 2");
-		System.out.println("test 3");
-		System.out.println("test 4");
 		
 		return "home";
 	}

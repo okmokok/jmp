@@ -1,14 +1,13 @@
-package com.jpm.algo.model;
+package com.jpm.algo.util;
 
-public class LinkedList {
-	private Node<Object> head;
-	private Node<Object> tail;
+public class LinkedList<T> {
+	private Node<T> head;
+	private Node<T> tail;
 	private int size = 0;
 	
 	public LinkedList() {
 		
 	}
-	
 	
 	private class Node<T> {
 		T data;
@@ -23,8 +22,6 @@ public class LinkedList {
 			return this.data;
 		}
 		
-
-		
 		public String toString() {
 			return String.valueOf(data);
 		}
@@ -34,8 +31,8 @@ public class LinkedList {
 		return this.size;
 	}	
 
-	public void addFirst(Object data) {
-		Node<Object> node = new Node<Object>(data);
+	public void addFirst(T data) {
+		Node<T> node = new Node<T>(data);
 		node.next = this.head;
 		this.head = node;
 		this.size++;
@@ -45,8 +42,8 @@ public class LinkedList {
 		}
 	}
 	
-	public void addLast(Object data) {
-		Node<Object> node = new Node<Object>(data);
+	public void addLast(T data) {
+		Node<T> node = new Node<T>(data);
 		
 		if (size == 0) {
 			addFirst(data);
@@ -59,8 +56,8 @@ public class LinkedList {
 		}
 	}
 	
-	public Node<Object> getNode(int index) {
-		Node<Object> node = head;
+	public Node<T> getNode(int index) {
+		Node<T> node = head;
 		
 		for (int i=0; i<index; i++) {
 			node = node.next;
@@ -69,19 +66,19 @@ public class LinkedList {
 		return node;
 	}
 	
-	public Object getData(int index) {
+	public T getData(int index) {
 		return this.getNode(index).getData();
 	}
 	
-	public void add(int index , Object object) {
+	public void add(int index , T object) {
 		if (index == 0) {
 			addFirst(object);
 		} else {
-			Node<Object> temp1 = this.getNode(index - 1);
+			Node<T> temp1 = this.getNode(index - 1);
 			
-			Node<Object> temp2 = temp1.next;
+			Node<T> temp2 = temp1.next;
 			
-			Node<Object> node = new Node<Object>(object);
+			Node<T> node = new Node<T>(object);
 			
 			temp1.next = node;
 			
@@ -97,7 +94,7 @@ public class LinkedList {
 	}
 	
 	public void removeFirst() {
-		Node<Object> temp = head;
+		Node<T> temp = head;
 		head = temp.next;
 		size--;
 	}
@@ -106,8 +103,8 @@ public class LinkedList {
 		if (index == 0) {
 			removeFirst();
 		} else {
-			Node<Object> temp = this.getNode(index - 1);
-			Node<Object> removeNode = temp.next;
+			Node<T> temp = this.getNode(index - 1);
+			Node<T> removeNode = temp.next;
 			
 			temp.next = temp.next.next;
 			
@@ -126,14 +123,14 @@ public class LinkedList {
 	
 	
 	/**
-	 * 특정한 값을 가진 엘리먼트의 인덱스 값을 검색.
-	 * 값이 있다면 그 값이 발견되는 첫번째 인덱스 값을 리턴하고 값이 없다면 -1을 리턴.
+	 * �듅�젙�븳 媛�?�쓣 媛�吏� �뿕?��?�㉫�듃�쓽 �씤�뜳�뒪 媛�?�쓣 寃��깋.
+	 * 媛�?�씠 �엳�떎硫� 洹� 媛�?�씠 諛쒓껄�릺�?�� 泥ル쾲吏�? �씤�뜳�뒪 媛�?�쓣 ?��?�꽩�븯?�� 媛�?�씠 �뾾�떎硫� -1�쓣 ?��?�꽩.
 	 * 
 	 * @param data
 	 * @return
 	 */
-	public int indexOf(Object data) {
-		Node<Object> temp = head;
+	public int indexOf(T data) {
+		Node<T> temp = head;
 		int index = 0;
 		
 		while (temp.data != data) {
