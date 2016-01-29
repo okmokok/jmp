@@ -1,4 +1,4 @@
-package algo;
+package com.jpm.algo.main;
 
 public class LinkedList {
 	Node first;
