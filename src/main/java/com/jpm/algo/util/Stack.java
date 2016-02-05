@@ -1,9 +1,5 @@
 package com.jpm.algo.util;
-/**
- * 
- *
- * @param <T>
- */
+
 public class Stack<T> {
 	
 	private DoubleLinkedList<T> linkedList;
